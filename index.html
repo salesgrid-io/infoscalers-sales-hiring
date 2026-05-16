@@ -24,14 +24,14 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--w);min-heig
 /* ── Progress ── */
 .prog-wrap{width:100%;max-width:620px;padding:1.4rem 0 0;display:none}
 .prog-track{height:2px;background:rgba(255,255,255,0.08)}
-.prog-fill{height:100%;background:var(--red);transition:width .4s ease}
+.prog-fill{height:100%;background:var(--red);transition:width .5s ease}
 .prog-meta{display:flex;justify-content:space-between;margin-top:8px;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--w30)}
 .prog-meta span{color:var(--red)}
 
 /* ── Screens ── */
-.screen{display:none;width:100%;max-width:620px;animation:up .35s ease forwards}
-.screen.active{display:block}
-@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.screen{display:none;width:100%;max-width:620px}
+.screen.active{display:block;animation:up .5s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 
 /* ── HERO ── */
 .hero{padding:3.5rem 0 3rem;text-align:center;position:relative}
@@ -105,6 +105,9 @@ input:focus,select:focus,textarea:focus{border-color:var(--red);box-shadow:0 0 0
 .thanks h2 span{color:var(--red);display:block}
 .thanks-divider{width:40px;height:2px;background:var(--red);margin:1.6rem auto}
 .thanks-desc{font-size:15px;line-height:1.8;color:var(--w60);max-width:400px;margin:0 auto}
+.thanks-logo{display:flex;flex-direction:column;align-items:center;gap:.4rem;margin-top:2.5rem}
+.thanks-logo img{width:44px;height:44px;mix-blend-mode:screen}
+.thanks-logo span{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--w30)}
 
 /* ── Footer ── */
 .brand-strip{width:100%;max-width:620px;border-top:1px solid var(--border);padding:1.2rem 0;display:flex;align-items:center;justify-content:center;gap:.5rem;margin-top:2rem}
@@ -199,7 +202,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--red);box-shadow:0 0 0
   <div class="screen" id="s-contact">
     <div class="form-wrap">
       <div class="form-header">
-        <div class="form-step-label">Step 1 of 8</div>
+        <div class="form-step-label">Step 1 of 9</div>
         <div class="form-title">Put Your Contact<br><em>Info Below</em></div>
       </div>
       <div class="fields">
@@ -221,7 +224,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--red);box-shadow:0 0 0
   <div class="screen" id="s-instagram">
     <div class="form-wrap">
       <div class="form-header">
-        <div class="form-step-label">Step 2 of 8</div>
+        <div class="form-step-label">Step 2 of 9</div>
         <div class="form-title">What Is Your<br><em>Instagram At?</em></div>
       </div>
       <div class="fields">
@@ -238,7 +241,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--red);box-shadow:0 0 0
   <div class="screen" id="s-location">
     <div class="form-wrap">
       <div class="form-header">
-        <div class="form-step-label">Step 3 of 8</div>
+        <div class="form-step-label">Step 3 of 9</div>
         <div class="form-title">What Is Your Location<br><em>& Time Zone?</em></div>
       </div>
       <div class="fields">
@@ -288,7 +291,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--red);box-shadow:0 0 0
   <div class="screen" id="s-role">
     <div class="form-wrap">
       <div class="form-header">
-        <div class="form-step-label">Step 4 of 8</div>
+        <div class="form-step-label">Step 4 of 9</div>
         <div class="form-title">Which Role Are<br><em>You Applying For?</em></div>
       </div>
       <div class="pills" id="pills-role">
@@ -318,7 +321,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--red);box-shadow:0 0 0
   <div class="screen" id="s-experience">
     <div class="form-wrap">
       <div class="form-header">
-        <div class="form-step-label">Step 5 of 8</div>
+        <div class="form-step-label">Step 5 of 9</div>
         <div class="form-title">How Many Years of Experience<br><em>Do You Have in This Role?</em></div>
       </div>
       <div class="pills" id="pills-exp">
@@ -338,7 +341,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--red);box-shadow:0 0 0
   <div class="screen" id="s-offers">
     <div class="form-wrap">
       <div class="form-header">
-        <div class="form-step-label">Step 6 of 8</div>
+        <div class="form-step-label">Step 6 of 9</div>
         <div class="form-title">What Type of Offers Have<br><em>You Sold Before?</em></div>
         <div class="form-desc">Select all that apply</div>
       </div>
@@ -355,39 +358,50 @@ input:focus,select:focus,textarea:focus{border-color:var(--red);box-shadow:0 0 0
     </div>
   </div>
 
-  <!-- ═══ STEP 7 — KPI + AVAILABILITY ═══ -->
+  <!-- ═══ STEP 7 — KPI ═══ -->
   <div class="screen" id="s-kpi">
     <div class="form-wrap">
       <div class="form-header">
-        <div class="form-step-label">Step 7 of 8</div>
-        <div class="form-title">A Few More<br><em>Questions</em></div>
+        <div class="form-step-label">Step 7 of 9</div>
+        <div class="form-title">Tell Us About<br><em>Your KPIs</em></div>
       </div>
       <div class="fields">
         <div class="field">
-          <label>What KPIs do you regularly track in your sales role, and why are they important to you?</label>
+          <label>What Key Performance Indicators (KPIs) do you regularly track in your sales role, and why are they important to you?</label>
           <textarea id="f-kpi" placeholder="Be specific — mention the metrics you track and what they tell you about your performance."></textarea>
         </div>
-        <div class="field" style="margin-top:6px">
-          <label>Availability</label>
-          <div class="pills" id="pills-avail" style="margin-bottom:0">
-            <div class="pill" onclick="selectPill(this,'pills-avail')"><div class="pill-radio"></div><span class="pill-label">Full-time</span></div>
-            <div class="pill" onclick="selectPill(this,'pills-avail')"><div class="pill-radio"></div><span class="pill-label">Part-time</span></div>
-            <div class="pill" onclick="selectPill(this,'pills-avail')"><div class="pill-radio"></div><span class="pill-label">Flexible availability</span></div>
-          </div>
-        </div>
       </div>
-      <div class="nav-row" style="margin-top:8px">
+      <div class="nav-row">
         <button class="btn-ghost" onclick="goBack()">← Back</button>
-        <button class="btn-red" onclick="goTo('s-loom',8)">Next &rarr;</button>
+        <button class="btn-red" onclick="goTo('s-availability',8)">Next &rarr;</button>
       </div>
     </div>
   </div>
 
-  <!-- ═══ STEP 8 — LOOM VIDEO ═══ -->
+  <!-- ═══ STEP 8 — AVAILABILITY ═══ -->
+  <div class="screen" id="s-availability">
+    <div class="form-wrap">
+      <div class="form-header">
+        <div class="form-step-label">Step 8 of 9</div>
+        <div class="form-title">What Is Your<br><em>Availability?</em></div>
+      </div>
+      <div class="pills" id="pills-avail">
+        <div class="pill" onclick="selectPill(this,'pills-avail')"><div class="pill-radio"></div><span class="pill-label">Full-time</span></div>
+        <div class="pill" onclick="selectPill(this,'pills-avail')"><div class="pill-radio"></div><span class="pill-label">Part-time</span></div>
+        <div class="pill" onclick="selectPill(this,'pills-avail')"><div class="pill-radio"></div><span class="pill-label">Flexible availability</span></div>
+      </div>
+      <div class="nav-row">
+        <button class="btn-ghost" onclick="goBack()">← Back</button>
+        <button class="btn-red" onclick="goTo('s-loom',9)">Next &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 9 — LOOM VIDEO ═══ -->
   <div class="screen" id="s-loom">
     <div class="form-wrap">
       <div class="form-header">
-        <div class="form-step-label">Step 8 of 8</div>
+        <div class="form-step-label">Step 9 of 9</div>
         <div class="form-title">Drop Your<br><em>Loom Video Here</em></div>
         <div class="form-desc">Record a short Loom introducing yourself and why you're the right fit. Paste the link below.</div>
       </div>
@@ -410,6 +424,10 @@ input:focus,select:focus,textarea:focus{border-color:var(--red);box-shadow:0 0 0
       <h2>Thanks for Your<br><span>Submission.</span></h2>
       <div class="thanks-divider"></div>
       <p class="thanks-desc">If we like your application, we will be in contact soon.</p>
+      <div class="thanks-logo">
+        <img src="logo.png" alt="Info Scalers">
+        <span>Info Scalers</span>
+      </div>
     </div>
   </div>
 
@@ -422,26 +440,46 @@ input:focus,select:focus,textarea:focus{border-color:var(--red);box-shadow:0 0 0
 
 <script>
 var hist=['s-hero'];
-var TOTAL=8;
-var LABELS=['','Contact Info','Instagram','Location & Time Zone','Role','Experience','Offer Types','KPIs & Availability','Loom Video'];
+var TOTAL=9;
+var LABELS=['','Contact Info','Instagram','Location & Time Zone','Role','Experience','Offer Types','KPIs','Availability','Loom Video'];
 
 function startForm(){document.getElementById('prog-wrap').style.display='block';goTo('s-contact',1)}
 
 function goTo(id,step){
-  hist.push(id);
-  var pct=Math.round((step/TOTAL)*100);
-  document.getElementById('prog-fill').style.width=pct+'%';
-  document.getElementById('prog-pct').textContent=pct+'%';
-  document.getElementById('prog-label').textContent=LABELS[step]||'';
-  show(id);
+  var current=hist[hist.length-1];
+  var el=document.getElementById(current);
+  if(el){
+    el.style.opacity='0';
+    el.style.transform='translateY(-10px)';
+    el.style.transition='opacity .22s ease, transform .22s ease';
+  }
+  setTimeout(function(){
+    hist.push(id);
+    var pct=Math.round((step/TOTAL)*100);
+    document.getElementById('prog-fill').style.width=pct+'%';
+    document.getElementById('prog-pct').textContent=pct+'%';
+    document.getElementById('prog-label').textContent=LABELS[step]||'';
+    show(id);
+    if(el){el.style.opacity='';el.style.transform='';el.style.transition='';}
+  },220);
 }
 
 function goBack(){
   if(hist.length>1){
-    hist.pop();
-    var p=hist[hist.length-1];
-    if(p==='s-hero')document.getElementById('prog-wrap').style.display='none';
-    show(p);
+    var current=hist[hist.length-1];
+    var el=document.getElementById(current);
+    if(el){
+      el.style.opacity='0';
+      el.style.transform='translateY(10px)';
+      el.style.transition='opacity .22s ease, transform .22s ease';
+    }
+    setTimeout(function(){
+      hist.pop();
+      var p=hist[hist.length-1];
+      if(p==='s-hero')document.getElementById('prog-wrap').style.display='none';
+      show(p);
+      if(el){el.style.opacity='';el.style.transform='';el.style.transition='';}
+    },220);
   }
 }
 
@@ -459,10 +497,20 @@ function selectPill(el,groupId){
 function toggleCheck(el){el.classList.toggle('checked')}
 
 function submit(){
-  document.getElementById('prog-fill').style.width='100%';
-  document.getElementById('prog-pct').textContent='100%';
-  document.getElementById('prog-label').textContent='Complete';
-  show('s-thanks');
+  var current=hist[hist.length-1];
+  var el=document.getElementById(current);
+  if(el){
+    el.style.opacity='0';
+    el.style.transform='translateY(-10px)';
+    el.style.transition='opacity .22s ease, transform .22s ease';
+  }
+  setTimeout(function(){
+    document.getElementById('prog-fill').style.width='100%';
+    document.getElementById('prog-pct').textContent='100%';
+    document.getElementById('prog-label').textContent='Complete';
+    show('s-thanks');
+    if(el){el.style.opacity='';el.style.transform='';el.style.transition='';}
+  },220);
 }
 </script>
 </body>
