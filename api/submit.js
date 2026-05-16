@@ -9,8 +9,7 @@ module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
-    const rawKey = process.env.GOOGLE_PRIVATE_KEY || '';
-    const privateKey = rawKey.replace(/\\n/g, '\n');
+    const privateKey = Buffer.from(process.env.GOOGLE_PRIVATE_KEY_B64, 'base64').toString('utf8');
 
     const auth = new google.auth.GoogleAuth({
       credentials: {
