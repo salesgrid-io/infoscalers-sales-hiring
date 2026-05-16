@@ -99,7 +99,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--red);box-shadow:0 0 0
 
 /* ── Thanks ── */
 .thanks{padding:4rem 0;text-align:center}
-.thanks-icon{width:72px;height:72px;background:var(--red);display:flex;align-items:center;justify-content:center;margin:0 auto 1.6rem}
+.thanks-icon{width:88px;height:88px;background:rgba(232,37,63,0.12);border:1.5px solid var(--red-border);display:flex;align-items:center;justify-content:center;margin:0 auto 1.6rem;border-radius:4px}
 .thanks-icon svg{width:32px;height:32px}
 .thanks h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(36px,8vw,58px);font-weight:900;text-transform:uppercase;line-height:.9;color:var(--w);margin-bottom:.8rem}
 .thanks h2 span{color:var(--red);display:block}
@@ -419,7 +419,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--red);box-shadow:0 0 0
   <div class="screen" id="s-thanks">
     <div class="thanks">
       <div class="thanks-icon">
-        <svg viewBox="0 0 32 32" fill="none"><path d="M6 16L13 23L26 9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <img src="logo.png" alt="Info Scalers" style="width:48px;height:48px;mix-blend-mode:screen">
       </div>
       <h2>Thanks for Your<br><span>Submission.</span></h2>
       <div class="thanks-divider"></div>
@@ -504,6 +504,28 @@ function submit(){
     el.style.transform='translateY(-10px)';
     el.style.transition='opacity .22s ease, transform .22s ease';
   }
+
+  var offers=[];
+  document.querySelectorAll('#checks-offers .chk-row.checked .chk-label').forEach(function(c){offers.push(c.textContent.trim())});
+
+  var payload={
+    firstName:document.getElementById('f-first').value,
+    lastName:document.getElementById('f-last').value,
+    email:document.getElementById('f-email').value,
+    phone:document.getElementById('f-phone').value,
+    instagram:document.getElementById('f-instagram').value,
+    location:document.getElementById('f-location').value,
+    timezone:document.getElementById('f-timezone').value,
+    role:(document.querySelector('#pills-role .pill.selected .pill-label')||{}).textContent||'',
+    experience:(document.querySelector('#pills-exp .pill.selected .pill-label')||{}).textContent||'',
+    offers:offers.join(', '),
+    kpi:document.getElementById('f-kpi').value,
+    availability:(document.querySelector('#pills-avail .pill.selected .pill-label')||{}).textContent||'',
+    loom:document.getElementById('f-loom').value
+  };
+
+  fetch('/api/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
+
   setTimeout(function(){
     document.getElementById('prog-fill').style.width='100%';
     document.getElementById('prog-pct').textContent='100%';
